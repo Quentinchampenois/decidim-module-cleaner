@@ -22,6 +22,7 @@ en:
       admin:
         organization_cleaner:
           edit:
+            title: Edit Data cleaner
             update: Update
           form:
             admin_log_cleaner_title: Admin log

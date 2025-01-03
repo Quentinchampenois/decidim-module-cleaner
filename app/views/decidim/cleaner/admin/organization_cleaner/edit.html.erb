@@ -1,6 +1,14 @@
-<%= decidim_form_for(@form, html: { class: "form edit_organization_cleaner" }, url:"/admin/organization/cleaner" , method: :put) do |f| %>
-  <%= render partial: "form", object: f %>
-  <div class="button--double form-general-submit">
-    <%= f.submit t(".update") %>
-  </div>
-<% end %>
+<div class="item_show__header">
+  <h1 class="item_show__header-title"><%= t '.title' %></h1>
+</div>
+<div class="item__edit-form">
+  <%= decidim_form_for(@form, html: { class: "form form-defaults edit_organization_cleaner" }, url:"/admin/organization/cleaner" , method: :put) do |form| %>
+    <div class="form__wrapper">
+      <%= render partial: "form", locals: { form:  } %>
+    </div>
+    <div class="form__wrapper-block">
+      <%= form.submit t(".update"), class: "button button__sm md:button__lg button__secondary" %>
+    </div>
+  <% end %>
+</div>
+

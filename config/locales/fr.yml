@@ -23,6 +23,7 @@ fr:
       admin:
         organization_cleaner:
           edit:
+            title: Modifier Nettoyeur de données
             update: Mettre à jour
           form:
             admin_log_cleaner_title: Historique d'administration

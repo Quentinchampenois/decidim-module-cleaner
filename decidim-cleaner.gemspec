@@ -17,7 +17,7 @@ Gem::Specification.new do |s|
     "homepage_uri" => "https://decidim.org",
     "source_code_uri" => "https://github.com/decidim/decidim"
   }
-  s.required_ruby_version = ">= 2.7.5"
+  s.required_ruby_version = "~> 3.2"
 
   s.name = "decidim-cleaner"
   s.summary = "A decidim cleaner module"
@@ -25,5 +25,5 @@ Gem::Specification.new do |s|
 
   s.files = Dir["{app,config,db,lib}/**/*", "LICENSE-AGPLv3.txt", "Rakefile", "README.md"]
 
-  s.add_dependency "decidim-core",  "~> #{Decidim::Cleaner.compatible_decidim_version}"
+  s.add_dependency "decidim-core",  Decidim::Cleaner.compatible_decidim_version
 end

@@ -18,7 +18,7 @@ module Decidim
             INNER JOIN decidim_users ON decidim_users.id = versions.item_id
               AND versions.item_type IN ('Decidim::User', 'Decidim::UserBaseEntity')
         SQL
-        ).where("deleted_at < ?", date_before_delete_user_versions).each do |version|
+        ).where(decidim_users: { deleted_at: ...date_before_delete_user_versions }).each do |version|
           version.destroy!
           Rails.logger.info "Version for user with id #{version.item_id} destroyed"
         end
@@ -31,7 +31,7 @@ module Decidim
               AND versions.item_type = 'Decidim::Authorization'
           SQL
         ).where(item_type: "Decidim::Authorization", decidim_authorizations: { id: nil })
-                           .where("versions.created_at < ?", date_before_delete_authorization_versions)
+                           .where(versions: { created_at: ...date_before_delete_authorization_versions })
                            .each do |version|
           version.destroy!
           Rails.logger.info "Version for authorization with id #{version.item_id} destroyed"
